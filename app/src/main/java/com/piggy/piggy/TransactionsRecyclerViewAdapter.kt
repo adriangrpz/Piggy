@@ -6,14 +6,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TransactionsRecyclerViewAdapter(private val data: Array<String>):
+class TransactionsRecyclerViewAdapter(private val data: List<Transaction>):
     RecyclerView.Adapter<TransactionsRecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val textView: TextView
+        val transactionAmountTV: TextView
+        val transactiontitleTV: TextView
 
         init {
-            textView = view.findViewById(R.id.textView)
+            transactionAmountTV = view.findViewById(R.id.transaction_amount)
+            transactiontitleTV = view.findViewById(R.id.transaction_title)
         }
     }
 
@@ -25,7 +27,8 @@ class TransactionsRecyclerViewAdapter(private val data: Array<String>):
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text =  data[position]
+        holder.transactiontitleTV.text =  data[position].title
+        holder.transactionAmountTV.text =  data[position].amount.toString()
     }
 
     override fun getItemCount() = data.size

@@ -1,15 +1,38 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:weightSum="100"
-    android:orientation="horizontal"
-    android:gravity="right">
+    android:layout_height="60dp"
+    android:layout_margin="5dp"
+    android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+        android:id="@+id/transaction_amount"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="20"
-        android:paddingTop="20dp"
-        android:text="Text"/>
-</LinearLayout>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="$130"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/transaction_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/ic_debit_card_w"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/transaction_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="6dp"
+        android:text="Title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/transaction_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
