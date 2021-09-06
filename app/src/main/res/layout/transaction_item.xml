@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:layout_marginStart="15dp"
-        android:src="@drawable/ic_debit_card_w"
+        android:src="@drawable/ic_card"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

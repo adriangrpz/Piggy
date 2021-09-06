@@ -24,7 +24,11 @@ class MainActivity : AppCompatActivity() {
     private fun dummyTransactions(): List<Transaction> {
         val transactions = mutableListOf<Transaction>()
         for (i in 1..20) {
-            transactions.add(Transaction("Transaction $i", Random.nextInt(-1000, 1000)))
+            transactions.add(Transaction(
+                "Transaction $i",
+                Random.nextInt(-1000, 1000),
+                TransactionType.values().toList().shuffled().first())
+            )
         }
         return transactions
     }

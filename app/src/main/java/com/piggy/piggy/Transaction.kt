@@ -1,3 +1,3 @@
 package com.piggy.piggy
 
-data class Transaction(val title: String, val amount: Int)
+data class Transaction(val title: String, val amount: Int, val type: TransactionType)
