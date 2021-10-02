@@ -75,11 +75,49 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/earnings_rl"
                 android:layout_width="0dp"
+                card_view:layout_constraintWidth_percent=".48"
                 android:layout_height="match_parent"
-                android:background="@drawable/earnings_expenses_bg"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintWidth_percent=".48" />
+                android:background="@drawable/earnings_expenses_bg"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    card_view:layout_constraintWidth_percent=".25"
+                    android:layout_height="0dp"
+                    card_view:layout_constraintHeight_percent=".4"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/earnings_icon_bg"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="35dp"
+                    android:text="Earnings"
+                    android:textColor="@color/gray"
+                    android:textSize="11sp"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/earnings_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="$1,000.00"
+                    android:textColor="@color/accent"
+                    android:textSize="18sp"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/expenses_rl"
@@ -88,7 +126,44 @@
                 android:background="@drawable/earnings_expenses_bg"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintWidth_percent=".48" />
+                card_view:layout_constraintWidth_percent=".48" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    card_view:layout_constraintWidth_percent=".25"
+                    android:layout_height="0dp"
+                    card_view:layout_constraintHeight_percent=".4"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/expenses_icon_bg"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="35dp"
+                    android:text="Expenses"
+                    android:textColor="@color/gray"
+                    android:textSize="11sp"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/earnings_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="$1,000.00"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
