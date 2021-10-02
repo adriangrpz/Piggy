@@ -11,30 +11,44 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20">
+        android:layout_weight="45">
 
-        <TextView
-            android:id="@+id/total_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="$0.00"
-            android:textColor="@color/white"
-            android:textSize="60sp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent" />
+        <!-- Balance Frame -->
+        <RelativeLayout
+            android:id="@+id/balance_card_rl"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/balance_card_bg"
+            />
 
-        <TextView
-            android:id="@+id/currency_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:layout_marginEnd="12dp"
-            android:text="MXN"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent" />
+        <RelativeLayout
+            android:id="@+id/earnings_rl"
+            android:layout_width="170dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/balance_card_rl"
+            android:background="@drawable/earnings_expenses_bg"
+            />
+
+        <RelativeLayout
+            android:id="@+id/expenses_rl"
+            android:layout_width="170dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/balance_card_rl"
+            android:background="@drawable/earnings_expenses_bg"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -43,7 +57,7 @@
         android:id="@+id/transactions_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="80"
+        android:layout_weight="55"
         card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:background="@drawable/main_rounded_list" />
 
