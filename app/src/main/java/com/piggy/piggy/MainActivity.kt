@@ -1,36 +1,43 @@
 package com.piggy.piggy
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.random.Random
+import io.realm.RealmChangeListener
+import io.realm.RealmResults
+import io.realm.kotlin.where
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val data = dummyTransactions()
-        val transactionsAdapter = TransactionsRecyclerViewAdapter(data)
+        Log.i(TAG(), "To create")
+        realmThread.executeTransactionAsync { transactionRealm ->
 
-        val recyclerView: RecyclerView = findViewById(R.id.transactions_rv)
-        recyclerView.adapter = transactionsAdapter
+            val transaction = Transaction()
+            transaction.title = "Transaction -3"
+            transaction.amount = 1000
+            transaction.type = TransactionType.PTRANSPORT
 
-    }
-
-    private fun dummyTransactions(): List<Transaction> {
-        val transactions = mutableListOf<Transaction>()
-        for (i in 1..20) {
-            transactions.add(Transaction(
-                "Transaction $i",
-                Random.nextInt(-1000, 1000),
-                TransactionType.values().toList().shuffled().first())
-            )
+            transactionRealm.insert(transaction)
         }
-        return transactions
+        Log.i(TAG(), "Transaction created")
+
+        Log.v(TAG(), "Fetching transactions")
+
+        val transactions : RealmResults<Transaction> = realmThread.where<Transaction>().findAllAsync()
+        transactions.addChangeListener(RealmChangeListener {
+            Log.v(TAG(), "Completed the query.")
+
+            Log.v(TAG(), transactions.asJSON())
+
+            val transactionsAdapter = TransactionsRecyclerViewAdapter(transactions.toList())
+            val recyclerView: RecyclerView = findViewById(R.id.transactions_rv)
+            recyclerView.adapter = transactionsAdapter
+            Log.v(TAG(), "Populated recycler view")
+        })
     }
 
 }
