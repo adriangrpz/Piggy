@@ -13,18 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.i(TAG(), "To create")
-        realmThread.executeTransactionAsync { transactionRealm ->
-
-            val transaction = Transaction()
-            transaction.title = "Transaction -3"
-            transaction.amount = 1000
-            transaction.type = TransactionType.PTRANSPORT
-
-            transactionRealm.insert(transaction)
-        }
-        Log.i(TAG(), "Transaction created")
-
         Log.v(TAG(), "Fetching transactions")
 
         val transactions : RealmResults<Transaction> = realmThread.where<Transaction>().findAllAsync()
