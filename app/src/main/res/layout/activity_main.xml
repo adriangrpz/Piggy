@@ -1,27 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF2F1">
+    android:background="#E8ECF2">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline_45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_guideline_87"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_guideline_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_guideline_96"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_guideline_50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        card_view:layout_constraintHeight_percent=".45"
-        card_view:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        card_view:layout_constraintBottom_toTopOf="@id/h_guideline_30"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintStart_toStartOf="@id/v_guideline_4"
+        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_96"
+        card_view:cardCornerRadius="12dp"
+        android:elevation="10dp"
+        >
 
-        <!-- Balance Frame -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/balance_card_rl"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            card_view:layout_constraintHeight_percent="0.55"
-            android:layout_margin="15dp"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
+            android:layout_height="match_parent"
             android:background="@drawable/balance_card_bg"
             >
 
@@ -61,143 +106,69 @@
                 card_view:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            card_view:layout_constraintHeight_percent="0.32"
-            android:layout_margin="15dp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/balance_card_rl">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/earnings_rl"
-                android:layout_width="0dp"
-                card_view:layout_constraintWidth_percent=".48"
-                android:layout_height="match_parent"
-                card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/earnings_expenses_bg"
-                >
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/earnings_ic_bg"
-                    android:layout_width="0dp"
-                    card_view:layout_constraintWidth_percent=".25"
-                    android:layout_height="0dp"
-                    card_view:layout_constraintHeight_percent=".4"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    card_view:layout_constraintStart_toStartOf="parent"
-                    card_view:layout_constraintTop_toTopOf="parent"
-                    android:background="@drawable/earnings_icon_bg"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="35dp"
-                    android:text="Earnings"
-                    android:textColor="@color/white"
-                    android:textSize="11sp"
-                    card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/earnings_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="$1,000.00"
-                    android:textColor="#188FA7"
-                    android:textSize="18sp"
-                    card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintStart_toStartOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/expenses_rl"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/earnings_expenses_bg"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintWidth_percent=".48" >
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    card_view:layout_constraintWidth_percent=".25"
-                    android:layout_height="0dp"
-                    card_view:layout_constraintHeight_percent=".4"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    card_view:layout_constraintStart_toStartOf="parent"
-                    card_view:layout_constraintTop_toTopOf="parent"
-                    android:background="@drawable/expenses_icon_bg"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="35dp"
-                    android:text="Expenses"
-                    android:textColor="@color/white"
-                    android:textSize="11sp"
-                    card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/expenses_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="$1,000.00"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintStart_toStartOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        card_view:layout_constraintHeight_percent=".55"
-        card_view:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/main_rounded_list"
+        card_view:cardCornerRadius="10dp"
+        android:layout_marginEnd="10dp"
+        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_30"
+        card_view:layout_constraintBottom_toTopOf="@id/h_guideline_45"
+        card_view:layout_constraintStart_toStartOf="@+id/v_guideline_4"
+        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_50"
         >
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactions_rv"
+        <include
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
+            layout="@layout/main_earnings_ly"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            card_view:layout_constraintWidth_percent=".15"
-            android:layout_height="5dp"
-            android:layout_marginTop="10dp"
 
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            android:background="#C4C4C4"
-            />
+    </androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        card_view:cardCornerRadius="10dp"
+        android:layout_marginStart="10dp"
+        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_30"
+        card_view:layout_constraintBottom_toTopOf="@id/h_guideline_45"
+        card_view:layout_constraintStart_toEndOf="@+id/v_guideline_50"
+        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_96"
+        >
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/main_expenses_ly"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactions_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/main_rounded_list"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_45"
+        card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        card_view:cardCornerRadius="30dp"
+        android:layout_marginBottom="30dp"
+        android:elevation="8dp"
+        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_87"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintStart_toEndOf="@id/v_guideline_4"
+        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_96"
+
+        >
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
