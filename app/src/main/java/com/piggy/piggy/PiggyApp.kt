@@ -1,6 +1,7 @@
 package com.piggy.piggy
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.realm.log.LogLevel
@@ -16,6 +17,7 @@ class PiggyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         Realm.init(this)
         val realmName = "Piggy"

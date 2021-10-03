@@ -4,7 +4,7 @@
         <shape android:shape="rectangle">
             <!-- TODO: Fix android:angle-->
             <solid
-                android:color="?attr/white"
+                android:color="@color/white"
                 />
             <corners android:radius="13dp" />
         </shape>

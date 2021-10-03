@@ -3,6 +3,7 @@ package com.piggy.piggy
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import io.realm.RealmChangeListener
 import io.realm.RealmResults
@@ -11,7 +12,6 @@ import io.realm.kotlin.where
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.DarkTheme)
         setContentView(R.layout.activity_main)
 
         Log.v(TAG(), "Fetching transactions")

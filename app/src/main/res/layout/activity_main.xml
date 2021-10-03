@@ -4,7 +4,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/bgColor">
+    android:background="#FFF2F1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:layout_marginEnd="48dp"
                 android:layout_marginBottom="30dp"
                 android:text="$0.00"
-                android:textColor="?attr/white"
+                android:textColor="@color/white"
                 android:textSize="60sp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent" />
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="Your balance"
-                android:textColor="?attr/white"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent" />
@@ -55,7 +55,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="40dp"
                 android:text="MXN"
-                android:textColor="?attr/white"
+                android:textColor="@color/white"
                 android:textSize="15sp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent" />
@@ -83,6 +83,7 @@
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/earnings_ic_bg"
                     android:layout_width="0dp"
                     card_view:layout_constraintWidth_percent=".25"
                     android:layout_height="0dp"
@@ -100,7 +101,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="35dp"
                     android:text="Earnings"
-                    android:textColor="?attr/text_muted"
+                    android:textColor="@color/white"
                     android:textSize="11sp"
                     card_view:layout_constraintBottom_toBottomOf="parent"
                     card_view:layout_constraintStart_toStartOf="parent" />
@@ -112,7 +113,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
                     android:text="$1,000.00"
-                    android:textColor="?attr/accent"
+                    android:textColor="#188FA7"
                     android:textSize="18sp"
                     card_view:layout_constraintBottom_toBottomOf="parent"
                     card_view:layout_constraintStart_toStartOf="parent" />
@@ -146,7 +147,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="35dp"
                     android:text="Expenses"
-                    android:textColor="?attr/text_muted"
+                    android:textColor="@color/white"
                     android:textSize="11sp"
                     card_view:layout_constraintBottom_toBottomOf="parent"
                     card_view:layout_constraintStart_toStartOf="parent" />
@@ -158,7 +159,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
                     android:text="$1,000.00"
-                    android:textColor="?attr/text_primary"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     card_view:layout_constraintBottom_toBottomOf="parent"
                     card_view:layout_constraintStart_toStartOf="parent" />
@@ -194,7 +195,7 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            android:background="?attr/over_bg"
+            android:background="#C4C4C4"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
