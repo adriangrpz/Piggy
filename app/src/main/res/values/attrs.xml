@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bgColor" format="color"/>
+    <attr name="textColor" format="color"/>
+    <attr name="text_primary" format="color"/>
+    <attr name="text_muted" format="color"/>
+    <attr name="accent" format="color"/>
+    <attr name="white" format="color"/>
+    <attr name="over_bg" format="color"/>
+</resources>

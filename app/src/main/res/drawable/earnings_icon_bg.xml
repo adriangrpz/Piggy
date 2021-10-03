@@ -2,9 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <!-- TODO: Fix android:angle-->
             <solid
-                android:color="@color/accent"
+                android:color="?attr/accent"
                 />
             <corners android:radius="13dp" />
         </shape>

@@ -13,4 +13,24 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="textColor">#000000</item>
+        <item name="bgColor">#ffffff</item>
+        <item name="text_primary">#000000</item>
+        <item name="text_muted">#606060</item>
+        <item name="accent">#FEC260</item>
+        <item name="white">#FFFFFF</item>
+        <item name="over_bg">#606060</item>
+    </style>
+
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="textColor">#ffffff</item>
+        <item name="bgColor">#000000</item>
+        <item name="text_primary">#ffffff</item>
+        <item name="text_muted">#606060</item>
+        <item name="accent">#FEC260</item>
+        <item name="white">#FFFFFF</item>
+        <item name="over_bg">#FFFFFF</item>
+    </style>
 </resources>
