@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        val fab  = findViewById<FloatingActionButton>(R.id.fab)
         val fab1 = findViewById<FloatingActionButton>(R.id.fab_add_1)
         val fab2 = findViewById<FloatingActionButton>(R.id.fab_add_2)
 
@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
                 fab1.isClickable = false
                 fab2.isClickable = false
 
+                fab1.visibility     = View.INVISIBLE
+                fab2.visibility     = View.INVISIBLE
                 fabText1.visibility = View.INVISIBLE
                 fabText2.visibility = View.INVISIBLE
             }
@@ -61,9 +63,11 @@ class MainActivity : AppCompatActivity() {
 
                 fab.startAnimation(fabRotateOpenAnim)
 
-                fab1.isClickable = false
-                fab2.isClickable = false
+                fab1.isClickable = true
+                fab2.isClickable = true
 
+                fab1.visibility     = View.VISIBLE
+                fab2.visibility     = View.VISIBLE
                 fabText1.visibility = View.VISIBLE
                 fabText2.visibility = View.VISIBLE
             }
