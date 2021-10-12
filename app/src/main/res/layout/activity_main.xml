@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8ECF2">
@@ -64,48 +63,11 @@
         android:elevation="10dp"
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <include
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/balance_card_bg"
-            >
+            layout="@layout/main_balance_ly" />
 
-            <TextView
-                android:id="@+id/balance_amount_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:layout_marginBottom="30dp"
-                android:text="$0.00"
-                android:textColor="@color/white"
-                android:textSize="60sp"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:id="@+id/balance_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:text="Your balance"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:id="@+id/currency_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="40dp"
-                android:text="MXN"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -156,19 +118,91 @@
         card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        card_view:cardCornerRadius="30dp"
-        android:layout_marginBottom="30dp"
-        android:elevation="8dp"
-        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_87"
-        card_view:layout_constraintBottom_toBottomOf="parent"
-        card_view:layout_constraintStart_toEndOf="@id/v_guideline_4"
-        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_96"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_car"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#c871f4"
+        android:tint="#FFFFFF"
+        card_view:layout_constraintBottom_toTopOf="@id/coordinator_ly"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        />
 
+    <TextView
+        android:id="@+id/fab_text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add User"
+        card_view:layout_constraintBottom_toBottomOf="@id/fab_add_1"
+        card_view:layout_constraintTop_toTopOf="@id/fab_add_1"
+        card_view:layout_constraintEnd_toStartOf="@id/fab_add_1"
+        android:layout_margin="32dp"
+        android:background="@drawable/fab_text_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:visibility="gone"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_ptransport"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#c871f4"
+        android:tint="#FFFFFF"
+        card_view:layout_constraintBottom_toTopOf="@id/fab_add_1"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/fab_text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add User"
+        card_view:layout_constraintBottom_toBottomOf="@id/fab_add_2"
+        card_view:layout_constraintTop_toTopOf="@id/fab_add_2"
+        card_view:layout_constraintEnd_toStartOf="@id/fab_add_2"
+        android:layout_margin="32dp"
+        android:background="@drawable/fab_text_bg"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:visibility="gone"
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_ly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:padding="8dp"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
         >
 
-    </androidx.cardview.widget.CardView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_24"
+            android:backgroundTint="#c871f4"
+            android:tint="#FFFFFF"
+            android:layout_gravity="bottom|end"
+            card_view:borderWidth="0dp"
+            />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

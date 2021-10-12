@@ -25,7 +25,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/earnings_icon_bg"
+        android:background="@drawable/expenses_icon_bg"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/h_guideline_55"
         app:layout_constraintStart_toStartOf="parent"
