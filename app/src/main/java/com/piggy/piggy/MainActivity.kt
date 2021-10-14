@@ -66,6 +66,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, AddIncomeActivity::class.java))
         }
 
+        fab2.setOnClickListener {
+            closeFabs()
+            startActivity(Intent(this, AddExpenseActivity::class.java))
+        }
+
         val transactions : RealmResults<Transaction> = realmThread.where<Transaction>().findAllAsync()
         transactions.addChangeListener(RealmChangeListener {
 

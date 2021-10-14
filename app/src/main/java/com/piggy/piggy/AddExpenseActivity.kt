@@ -9,10 +9,10 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import io.realm.Realm
 
-class AddIncomeActivity : AppCompatActivity() {
+class AddExpenseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_income)
+        setContentView(R.layout.activity_add_expense)
 
         val titleET        = findViewById<TextInputEditText>(R.id.title_et)
         val amountET       = findViewById<TextInputEditText>(R.id.amount_et)
@@ -38,6 +38,7 @@ class AddIncomeActivity : AppCompatActivity() {
             val newTransaction = Transaction()
             newTransaction.title = titleET.text.toString()
             newTransaction.amount = amountET.text.toString().toInt()
+            Log.v(TAG(), newTransaction.toString())
 
             val type = when (autocompleteTV.text.toString()) {
                 "Card" -> TransactionType.CARD
@@ -54,9 +55,11 @@ class AddIncomeActivity : AppCompatActivity() {
             realmThread.executeTransactionAsync(
                 { transaction ->
                     transaction.insert(newTransaction)
+                    Log.v(TAG(), "Expense created")
                 },
                 Realm.Transaction.OnSuccess {
                     finish()
+                    Log.v(TAG(), "Finishing activity")
                 }
             )
 
