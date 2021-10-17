@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Piggy</string>
+    <string name="amount_template">$%1s</string>
+    <string name="add">add</string>
+    <string name="new_income">New Income</string>
+    <string name="new_expense">New Expense</string>
+    <string name="amount_placeholder">$0</string>
+    <string name="your_balance">Your Balance</string>
+    <string name="currency_mxn">MXN</string>
 </resources>

@@ -2,8 +2,11 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 <item>
     <shape xmlns:android="http://schemas.android.com/apk/res/android">
-        <solid
-            android:color="#FFFFFF" />
+        <gradient
+            android:startColor="#212121"
+            android:centerColor="#242424"
+            android:endColor="#212121"
+            android:type="linear" />
         <corners android:topLeftRadius="30dp" android:topRightRadius="30dp" />
     </shape>
 

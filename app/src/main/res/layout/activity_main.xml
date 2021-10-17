@@ -1,199 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8ECF2">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_guideline_30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.30" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_guideline_45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_guideline_87"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.87" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/v_guideline_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/v_guideline_96"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.96" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/v_guideline_50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        card_view:layout_constraintBottom_toTopOf="@id/h_guideline_30"
-        card_view:layout_constraintTop_toTopOf="parent"
-        card_view:layout_constraintStart_toStartOf="@id/v_guideline_4"
-        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_96"
-        card_view:cardCornerRadius="12dp"
-        android:elevation="10dp"
-        >
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/main_balance_ly" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        card_view:cardCornerRadius="10dp"
-        android:layout_marginEnd="10dp"
-        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_30"
-        card_view:layout_constraintBottom_toTopOf="@id/h_guideline_45"
-        card_view:layout_constraintStart_toStartOf="@+id/v_guideline_4"
-        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_50"
-        >
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/main_earnings_ly"/>
+    android:background="#1E0072">
 
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        card_view:cardCornerRadius="10dp"
-        android:layout_marginStart="10dp"
-        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_30"
-        card_view:layout_constraintBottom_toTopOf="@id/h_guideline_45"
-        card_view:layout_constraintStart_toEndOf="@+id/v_guideline_50"
-        card_view:layout_constraintEnd_toStartOf="@id/v_guideline_96"
-        >
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/main_expenses_ly"/>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/transactions_rv"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/main_rounded_list"
-        card_view:layout_constraintBottom_toBottomOf="parent"
-        card_view:layout_constraintTop_toBottomOf="@id/h_guideline_45"
-        card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#1E0072"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                card_view:toolbarId="@+id/toolbar">
+
+                <include
+                    layout="@layout/toolbar_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.piggy.piggy.DashboardNestedScrollview
+            android:id="@+id/transactionScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_rounded_list"
+            android:clipToPadding="false"
+            android:elevation="20dp"
+            android:fillViewport="true"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/transactions_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </com.piggy.piggy.DashboardNestedScrollview>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_attach_money_24"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#c871f4"
+        android:src="@drawable/ic_baseline_attach_money_24"
         android:tint="#FFFFFF"
-        card_view:borderWidth="0dp"
-        card_view:layout_constraintBottom_toTopOf="@id/fab"
-        card_view:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
-        />
+        card_view:borderWidth="0dp"
+        android:contentDescription="@string/new_income"
+        card_view:layout_constraintBottom_toTopOf="@id/fab"
+        card_view:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/fab_text_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Income"
-        card_view:layout_constraintBottom_toBottomOf="@id/fab_add_1"
-        card_view:layout_constraintTop_toTopOf="@id/fab_add_1"
-        card_view:layout_constraintEnd_toStartOf="@id/fab_add_1"
         android:layout_margin="32dp"
         android:background="@drawable/fab_text_bg"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:paddingTop="6dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="6dp"
+        android:text="@string/new_income"
         android:visibility="gone"
-        />
+        card_view:layout_constraintBottom_toBottomOf="@id/fab_add_1"
+        card_view:layout_constraintEnd_toStartOf="@id/fab_add_1"
+        card_view:layout_constraintTop_toTopOf="@id/fab_add_1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_money_off_24"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#c871f4"
+        android:src="@drawable/ic_baseline_money_off_24"
         android:tint="#FFFFFF"
-        card_view:borderWidth="0dp"
-        card_view:layout_constraintBottom_toTopOf="@id/fab_add_1"
-        card_view:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
-        />
+        card_view:borderWidth="0dp"
+        android:contentDescription="@string/new_expense"
+        card_view:layout_constraintBottom_toTopOf="@id/fab_add_1"
+        card_view:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/fab_text_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Expense"
-        card_view:layout_constraintBottom_toBottomOf="@id/fab_add_2"
-        card_view:layout_constraintTop_toTopOf="@id/fab_add_2"
-        card_view:layout_constraintEnd_toStartOf="@id/fab_add_2"
         android:layout_margin="32dp"
         android:background="@drawable/fab_text_bg"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:paddingTop="6dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="6dp"
+        android:text="@string/new_expense"
         android:visibility="gone"
-        />
+        card_view:layout_constraintBottom_toBottomOf="@id/fab_add_2"
+        card_view:layout_constraintEnd_toStartOf="@id/fab_add_2"
+        card_view:layout_constraintTop_toTopOf="@id/fab_add_2" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_add_24"
+        android:layout_margin="32dp"
         android:backgroundTint="#c871f4"
+        android:src="@drawable/ic_baseline_add_24"
         android:tint="#FFFFFF"
         card_view:borderWidth="0dp"
-        android:layout_margin="32dp"
+        android:contentDescription="@string/add"
         card_view:layout_constraintBottom_toBottomOf="parent"
-        card_view:layout_constraintEnd_toEndOf="parent"
-        />
+        card_view:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

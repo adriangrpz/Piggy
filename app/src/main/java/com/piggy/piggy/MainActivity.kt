@@ -3,7 +3,6 @@ package com.piggy.piggy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -13,19 +12,24 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.realm.RealmChangeListener
 import io.realm.RealmResults
 import io.realm.kotlin.where
+import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var fab: FloatingActionButton
+    private lateinit var balanceText : TextView
+    private lateinit var earningsText: TextView
+    private lateinit var expensesText: TextView
+
+    private lateinit var fab : FloatingActionButton
     private lateinit var fab1: FloatingActionButton
     private lateinit var fab2: FloatingActionButton
 
     private lateinit var fabText1: TextView
     private lateinit var fabText2: TextView
 
-    private lateinit var fabOpenAnim: Animation
-    private lateinit var fabCloseAnim: Animation
-    private lateinit var fabRotateOpenAnim: Animation
+    private lateinit var fabOpenAnim       : Animation
+    private lateinit var fabCloseAnim      : Animation
+    private lateinit var fabRotateOpenAnim : Animation
     private lateinit var fabRotateCloseAnim: Animation
 
     private var fabIsOpen = false
@@ -45,6 +49,10 @@ class MainActivity : AppCompatActivity() {
             populateDatabase()
         }
 
+        balanceText  = findViewById(R.id.balance_amount_tv)
+        earningsText = findViewById(R.id.earnings_amount_tv)
+        expensesText = findViewById(R.id.expenses_amount_tv)
+
         fab  = findViewById(R.id.fab)
         fab1 = findViewById(R.id.fab_add_1)
         fab2 = findViewById(R.id.fab_add_2)
@@ -52,14 +60,12 @@ class MainActivity : AppCompatActivity() {
         fabText1 = findViewById(R.id.fab_text_1)
         fabText2 = findViewById(R.id.fab_text_2)
 
-        fabOpenAnim = AnimationUtils.loadAnimation(this, R.anim.fab_open)
-        fabCloseAnim = AnimationUtils.loadAnimation(this, R.anim.fab_close)
-        fabRotateOpenAnim = AnimationUtils.loadAnimation(this, R.anim.fab_rotate_open)
+        fabOpenAnim        = AnimationUtils.loadAnimation(this, R.anim.fab_open)
+        fabCloseAnim       = AnimationUtils.loadAnimation(this, R.anim.fab_close)
+        fabRotateOpenAnim  = AnimationUtils.loadAnimation(this, R.anim.fab_rotate_open)
         fabRotateCloseAnim = AnimationUtils.loadAnimation(this, R.anim.fab_rotate_close)
 
-        fab.setOnClickListener {
-            if (fabIsOpen) closeFabs() else openFabs()
-        }
+        fab.setOnClickListener { if (fabIsOpen) closeFabs() else openFabs() }
 
         fab1.setOnClickListener {
             closeFabs()
@@ -74,10 +80,28 @@ class MainActivity : AppCompatActivity() {
         val transactions : RealmResults<Transaction> = realmThread.where<Transaction>().findAllAsync()
         transactions.addChangeListener(RealmChangeListener {
 
-            Log.v(TAG(), transactions.asJSON())
             val transactionsAdapter = TransactionsRecyclerViewAdapter(transactions.toList())
             val recyclerView: RecyclerView = findViewById(R.id.transactions_rv)
             recyclerView.adapter = transactionsAdapter
+
+            var totalEarnings = 0
+            var totalExpenses = 0
+            for (transaction in transactions.toList()) {
+                if (transaction.amount > 0)
+                    totalEarnings += transaction.amount
+                else
+                    totalExpenses += transaction.amount
+            }
+
+            val nf: NumberFormat = NumberFormat.getInstance()
+
+            val balanceString  = nf.format(totalEarnings + totalExpenses)
+            val earningsString = nf.format(totalEarnings)
+            val expensesString = nf.format(totalExpenses)
+
+            balanceText.text  = getString(R.string.amount_template, balanceString)
+            earningsText.text = getString(R.string.amount_template, earningsString)
+            expensesText.text = getString(R.string.amount_template, expensesString)
         })
 
     }

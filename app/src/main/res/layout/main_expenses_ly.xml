@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FFFFFF">
+    android:background="@drawable/black_gradient_blackground">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/v_guideline_40"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="$1,000.00"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/expenses_tv"
         app:layout_constraintStart_toStartOf="parent"
