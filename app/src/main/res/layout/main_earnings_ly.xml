@@ -31,7 +31,18 @@
         app:layout_constraintBottom_toTopOf="@id/h_guideline_50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/v_guideline_30"
-        />
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            android:rotation="315"
+            app:tint="#FFFFFF"
+            android:contentDescription="@string/earnings"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/earnings_tv"
