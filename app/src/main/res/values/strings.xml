@@ -10,4 +10,6 @@
     <string name="title">Title</string>
     <string name="amount">Amount</string>
     <string name="type">Type</string>
+    <string name="earnings">Earnings</string>
+    <string name="expenses">Expenses</string>
 </resources>

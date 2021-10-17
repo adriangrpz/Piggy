@@ -38,7 +38,7 @@ class AddExpenseActivity : AppCompatActivity() {
             val newTransaction = Transaction()
             newTransaction.title = titleET.text.toString()
             newTransaction.amount = amountET.text.toString().toInt()
-            Log.v(TAG(), newTransaction.toString())
+            Log.v(tag(), newTransaction.toString())
 
             val type = when (autocompleteTV.text.toString()) {
                 "Card" -> TransactionType.CARD
@@ -47,7 +47,7 @@ class AddExpenseActivity : AppCompatActivity() {
             }
 
             if (type == null)
-                Log.v(TAG(), "Null found in transaction type")
+                Log.v(tag(), "Null found in transaction type")
             else {
                 newTransaction.type = type
             }
@@ -55,11 +55,11 @@ class AddExpenseActivity : AppCompatActivity() {
             realmThread.executeTransactionAsync(
                 { transaction ->
                     transaction.insert(newTransaction)
-                    Log.v(TAG(), "Expense created")
+                    Log.v(tag(), "Expense created")
                 },
                 Realm.Transaction.OnSuccess {
                     finish()
-                    Log.v(TAG(), "Finishing activity")
+                    Log.v(tag(), "Finishing activity")
                 }
             )
 

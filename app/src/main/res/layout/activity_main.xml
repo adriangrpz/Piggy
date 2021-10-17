@@ -36,7 +36,6 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <com.piggy.piggy.DashboardNestedScrollview
-            android:id="@+id/transactionScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/main_rounded_list"

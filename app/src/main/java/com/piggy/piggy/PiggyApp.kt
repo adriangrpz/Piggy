@@ -10,9 +10,7 @@ import io.realm.log.RealmLog
 
 lateinit var realmThread: Realm
 
-// global Kotlin extension that resolves to the short version
-// of the name of the current class. Used for labelling logs.
-inline fun <reified T> T.TAG(): String = T::class.java.simpleName
+inline fun <reified T> T.tag(): String = T::class.java.simpleName
 
 lateinit var sharedPref: SharedPreferences
 
@@ -32,6 +30,6 @@ class PiggyApp : Application() {
             RealmLog.setLevel(LogLevel.ALL)
         }
 
-        sharedPref = getSharedPreferences("com.piggy.piggy", Application.MODE_PRIVATE)
+        sharedPref = getSharedPreferences("com.piggy.piggy", MODE_PRIVATE)
     }
 }

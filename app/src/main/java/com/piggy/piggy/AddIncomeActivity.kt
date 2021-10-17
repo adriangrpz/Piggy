@@ -46,7 +46,7 @@ class AddIncomeActivity : AppCompatActivity() {
             }
 
             if (type == null)
-                Log.v(TAG(), "Null found in transaction type")
+                Log.v(tag(), "Null found in transaction type")
             else {
                 newTransaction.type = type
             }
