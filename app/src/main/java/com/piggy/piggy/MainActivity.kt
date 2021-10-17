@@ -3,14 +3,12 @@ package com.piggy.piggy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.ExpandableListView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import io.realm.Realm
 import io.realm.RealmChangeListener
 import io.realm.RealmResults
 import io.realm.kotlin.where
@@ -83,9 +81,18 @@ class MainActivity : AppCompatActivity() {
         val transactions : RealmResults<Transaction> = realmThread.where<Transaction>().findAllAsync()
         transactions.addChangeListener(RealmChangeListener {
 
-            val transactionsAdapter = TransactionsRecyclerViewAdapter(transactions.toList())
-            val recyclerView: RecyclerView = findViewById(R.id.transactions_rv)
-            recyclerView.adapter = transactionsAdapter
+            var transactionCollection = mutableMapOf<String, List<Transaction>>()
+
+            var months = listOf("January", "February", "March")
+            var transactions = transactions.toList()
+
+            transactionCollection["January"] = transactions
+            transactionCollection["February"] = transactions
+            transactionCollection["March"] = transactions
+
+            val transactionsAdapter = TransactionsExpandableListAdapter(this, months, transactionCollection)
+            val expandableLV : ExpandableListView = findViewById(R.id.expandable_lv)
+            expandableLV.setAdapter(transactionsAdapter)
 
             var totalEarnings = 0
             var totalExpenses = 0
