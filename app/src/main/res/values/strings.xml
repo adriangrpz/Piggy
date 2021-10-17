@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Piggy</string>
     <string name="amount_template">$%1s</string>
+    <string name="pos_amount_template">+$%1s</string>
+    <string name="neg_amount_template">-$%1s</string>
     <string name="add">add</string>
     <string name="new_income">New Income</string>
     <string name="new_expense">New Expense</string>
@@ -14,4 +16,5 @@
     <string name="expenses">Expenses</string>
     <string name="transactions">Transactions</string>
     <string name="category">Categoría</string>
+    <string name="date">01 Month, 01:01 AM</string>
 </resources>
