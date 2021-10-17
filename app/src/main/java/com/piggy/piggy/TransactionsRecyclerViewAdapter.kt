@@ -28,11 +28,11 @@ class TransactionsRecyclerViewAdapter(private val data: List<Transaction>):
         holder.transactionTitleTV.text =  transaction.title
         holder.transactionAmountTV.text =  transaction.amount.toString()
 
-        val resource = when (transaction.type) {
-            TransactionType.CARD -> R.drawable.ic_card
-            TransactionType.CASH -> R.drawable.ic_cash
-            TransactionType.PTRANSPORT -> R.drawable.ic_ptransport
-            TransactionType.CAR -> R.drawable.ic_car
+        val resource = when (transaction.category) {
+            TransactionCategory.CARD -> R.drawable.ic_card
+            TransactionCategory.CASH -> R.drawable.ic_cash
+            TransactionCategory.PTRANSPORT -> R.drawable.ic_ptransport
+            TransactionCategory.CAR -> R.drawable.ic_car
         }
 
         holder.transactionIconIV.setImageResource(resource)

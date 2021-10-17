@@ -45,14 +45,14 @@
             android:textColor="#000000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned"
+            android:inputType="number"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:id="@+id/type_til"
+        android:id="@+id/category_til"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
@@ -61,15 +61,15 @@
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toBottomOf="@id/amount_til"
         android:textColorHint="#000000"
-        android:hint="@string/type">
+        android:hint="@string/category">
 
         <AutoCompleteTextView
-            android:id="@+id/type_atv"
+            android:id="@+id/category_atv"
             android:textColor="#000000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
-            android:labelFor="@id/type_atv"
+            android:labelFor="@id/category_atv"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +81,7 @@
         android:text="@string/add"
         android:layout_margin="32dp"
         card_view:layout_constraintEnd_toEndOf="parent"
-        card_view:layout_constraintTop_toBottomOf="@id/type_til"
+        card_view:layout_constraintTop_toBottomOf="@id/category_til"
         />
 
 

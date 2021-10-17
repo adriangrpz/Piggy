@@ -16,14 +16,14 @@ class AddExpenseActivity : AppCompatActivity() {
 
         val titleET        = findViewById<TextInputEditText>(R.id.title_et)
         val amountET       = findViewById<TextInputEditText>(R.id.amount_et)
-        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.type_atv)
+        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.category_atv)
         val addButton      = findViewById<MaterialButton>(R.id.add)
 
         val items = mutableListOf<String>()
-        TransactionType.values().forEach {
+        TransactionCategory.values().forEach {
             val name = when (it) {
-                TransactionType.CARD -> "Card"
-                TransactionType.CASH -> "Cash"
+                TransactionCategory.CARD -> "Card"
+                TransactionCategory.CASH -> "Cash"
                 else                 -> ""
             }
             if (name != "")
@@ -40,17 +40,19 @@ class AddExpenseActivity : AppCompatActivity() {
             newTransaction.amount = amountET.text.toString().toInt()
             Log.v(tag(), newTransaction.toString())
 
-            val type = when (autocompleteTV.text.toString()) {
-                "Card" -> TransactionType.CARD
-                "Cash" -> TransactionType.CASH
+            val category = when (autocompleteTV.text.toString()) {
+                "Card" -> TransactionCategory.CARD
+                "Cash" -> TransactionCategory.CASH
                 else   -> null
             }
 
-            if (type == null)
-                Log.v(tag(), "Null found in transaction type")
+            if (category == null)
+                Log.v(tag(), "Null found in transaction category")
             else {
-                newTransaction.type = type
+                newTransaction.category = category
             }
+
+            newTransaction.type = TransactionType.EXPENSE
 
             realmThread.executeTransactionAsync(
                 { transaction ->

@@ -3,16 +3,19 @@ package com.piggy.piggy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import io.realm.Realm
 import io.realm.RealmChangeListener
 import io.realm.RealmResults
 import io.realm.kotlin.where
 import java.text.NumberFormat
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -87,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             var totalEarnings = 0
             var totalExpenses = 0
             for (transaction in transactions.toList()) {
-                if (transaction.amount > 0)
+                if (transaction.type == TransactionType.INCOME)
                     totalEarnings += transaction.amount
                 else
                     totalExpenses += transaction.amount
@@ -95,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
             val nf: NumberFormat = NumberFormat.getInstance()
 
-            val balanceString  = nf.format(totalEarnings + totalExpenses)
+            val balanceString  = nf.format(totalEarnings - totalExpenses)
             val earningsString = nf.format(totalEarnings)
             val expensesString = nf.format(totalExpenses)
 
@@ -147,7 +150,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun populateDatabase() {
-//        Initial data
+        for (i in 1..10) {
+            val newTransaction = Transaction()
+            newTransaction.title = "Transaction $i"
+            newTransaction.amount = Random.nextInt(3000) + 1
+            if (i % 2 == 0)
+                newTransaction.typeDescription = TransactionType.INCOME.name
+            else
+                newTransaction.typeDescription = TransactionType.EXPENSE.name
+
+            realmThread.executeTransactionAsync { transaction ->
+                transaction.insert(newTransaction)
+            }
+        }
     }
 
 }
