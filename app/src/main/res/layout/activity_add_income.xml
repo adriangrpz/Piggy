@@ -4,7 +4,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8ECF2">
+    android:background="@color/white">
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -16,7 +16,7 @@
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toTopOf="parent"
         android:textColorHint="#000000"
-        android:hint="Title">
+        android:hint="@string/title">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/title_et"
@@ -34,11 +34,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         card_view:boxStrokeColor="#c871f4"
-        card_view:boxBackgroundColor="#E8ECF2"
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toBottomOf="@id/title_til"
         android:textColorHint="#000000"
-        android:hint="Amount">
+        android:hint="@string/amount">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/amount_et"
@@ -57,11 +56,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         card_view:boxStrokeColor="#c871f4"
-        card_view:boxBackgroundColor="#E8ECF2"
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toBottomOf="@id/amount_til"
         android:textColorHint="#000000"
-        android:hint="Type">
+        android:hint="@string/type">
 
         <AutoCompleteTextView
             android:id="@+id/type_atv"
@@ -69,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
+            android:labelFor="@id/type_atv"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -77,7 +76,7 @@
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
+        android:text="@string/add"
         android:layout_margin="32dp"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintTop_toBottomOf="@id/type_til"
